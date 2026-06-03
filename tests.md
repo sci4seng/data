@@ -125,15 +125,15 @@ Group A–J, 10 each.
 89. `extract/scripts/szz_pass.py`, `archpat_lift.py`, `parse_pattern4_xml.py` still run (move to `lifts/scripts/`).
 90. `scripts/refresh.py --dry-run` prints the correct 8-step pipeline plan without running anything.
 
-## J. Carlos PR hygiene + anonymisation (10)
+## J. SME PR hygiene + anonymisation (10)
 
-91. **No `*.html` in `sci4seng/lifts`** (Carlos email 2026-06-01: "html files should be hosted elsewhere, not in PR"). CI rejects PRs that add HTML to lifts.
-92. **No `data/` in `sci4seng/lifts`** (Carlos rule: he doesn't host data in kaiaulu).
+91. **No `*.html` in `sci4seng/lifts`** (SME email 2026-06-01: "html files should be hosted elsewhere, not in PR"). CI rejects PRs that add HTML to lifts.
+92. **No `data/` in `sci4seng/lifts`** (SME rule: he doesn't host data in kaiaulu).
 93. Each vignette Rmd carries a YAML header naming its 1:1 knit-target HTML at the canonical Pages URL.
 94. Per-vignette kaiaulu PR contains exactly 3 file types: `conf/<project>.yml`, `R/<helper>.R`, `vignettes/<topic>_<method>.Rmd`.
 95. Knit HTML output lands at `sci4seng/core/docs/lifts/<name>.html` (or external Drive folder) — never inside `sci4seng/lifts`.
-96. Anonymisation pass on `sci4seng/core` strips identifiers from prose: "Tim", "Carlos", "Rick", "Umar", "Menzies", "Ric" → "Author N" or removed.
-97. Anonymisation strips `github.com/timm/*` URLs from `docs/index.html` (GitHub ribbon), `CLAUDE.md`, `TODO.md`, `STATE.md`.
+96. Anonymisation pass on `sci4seng/core` strips identifiers from prose: "coder", "SME", "DBmang", "intern", "lead", "architect" → "Author N" or removed.
+97. Anonymisation strips `github.com/sci4seng/*` URLs from `docs/index.html` (GitHub ribbon), `CLAUDE.md`, `TODO.md`, `STATE.md`.
 98. Anonymisation zip excludes `diary/` (collaborator emails) + `meta/session_*.md` (Claude chat logs) entirely.
 99. Git commit history scrubbed via `git-filter-repo --name-callback` (committer name → "Anonymous") before pushing to anon mirror.
 100. Final anonymous.4open.science zip < 100 MB and renders the index page cleanly without identity leaks.
@@ -231,7 +231,7 @@ For each of these 5 URLs:
 
 **K24.** GO any lift HTML. DO scroll to bottom. CHECK download links to the source CSV resolve (click → file downloads or renders). **Fail if** link dead.
 
-### Subgroup K-PR — Carlos PR workflow on kaiaulu (5 min, when submitting)
+### Subgroup K-PR — SME PR workflow on kaiaulu (5 min, when submitting)
 
 **K25.** GO `https://github.com/sailuh/kaiaulu/pulls`. DO open your draft PR. DO click "Files changed". CHECK the file list contains ONLY: one `conf/<project>.yml`, one or more `R/*.R`, one `vignettes/<topic>_<method>.Rmd`. NO `*.html`, NO `data/`, NO `.original.md`, NO `meta/`, NO `outputs/`. **Fail if** any HTML or data file in diff.
 
@@ -243,15 +243,15 @@ For each of these 5 URLs:
 
 ### Subgroup K-ANON — Anonymous-submission preview (5 min, before send)
 
-**K29.** GO local unzipped anon-mirror dir. DO open EVERY `docs/**/*.html` in a browser (or grep entire dir). DO Ctrl-F each of these strings: `Tim`, `Carlos`, `Rick`, `Umar`, `Ric`, `Menzies`, `github.com/timm`. CHECK zero matches across all files. **Fail if** any hit (then re-run the anonymisation pass).
+**K29.** GO local unzipped anon-mirror dir. DO open EVERY `docs/**/*.html` in a browser (or grep entire dir). DO Ctrl-F each of these strings: `coder`, `SME`, `DBmang`, `intern`, `architect`, `lead`, `github.com/sci4seng`. CHECK zero matches across all files. **Fail if** any hit (then re-run the anonymisation pass).
 
-**K30.** GO local anon-mirror `<host>/`. DO scroll to footer. DO open 3 random model pages and scroll to their footers + reference sections. CHECK every footer says "Anonymous submission · <venue> <year>" (your wording). NO stray "Tim et al." in any caption, acknowledgement, or self-citation. **Fail if** any leak.
+**K30.** GO local anon-mirror `<host>/`. DO scroll to footer. DO open 3 random model pages and scroll to their footers + reference sections. CHECK every footer says "Anonymous submission · <venue> <year>" (your wording). NO stray "coder et al." in any caption, acknowledgement, or self-citation. **Fail if** any leak.
 
 ---
 
 ## How to use the K group
 
-Carlos / Rick / reviewers can do these in ~15 minutes once the site
+SME / DBmang / reviewers can do these in ~15 minutes once the site
 is up. Walk a checklist; mark fail conditions with a screenshot for
 the issue tracker. Most failures here are CSS / layout regressions
 that scriptable tests A–J would miss because they only check
