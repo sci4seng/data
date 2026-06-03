@@ -1,0 +1,17 @@
+# NEVER commit raw data — all bundles live on Drive
+dropzone/*
+!dropzone/README.md
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Project subdirs (helix/, tomcat/, etc.) are never tracked
+*/
+!dropzone/
+
+# build artifacts
+__pycache__/
+*.pyc
+.DS_Store
+__MACOSX/
+*.bak
