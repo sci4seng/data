@@ -1,0 +1,74 @@
+# Per-project bundle manifest. Run scripts/fetch.py (TBD) to pull
+# all bundles into dropzone/. Then `make refresh` in sci4seng/core.
+#
+# Sourced from SME's Drive folder:
+#   https://drive.google.com/drive/u/0/folders/1CA4eIO6-U4V0SMBQ05VNI-jdnN4ipM02
+# Sharing is gated; user must download manually OR set
+# Drive folder to "Anyone with the link" then use gdown:
+#   .venv/bin/gdown --folder <URL>
+
+projects:
+  helix:
+    bundle: helix.zip
+    size: 116204584
+    drive_id: null    # fill in once folder is share-public
+    contents:
+      - git_repo/.git
+      - mod_mbox/
+      - jira/issues/
+      - jira/issue_comments/
+      - github/
+
+  tomcat:
+    bundle: tomcat.zip
+    size: 414900388
+    drive_id: null
+    contents:
+      - git_repo/.git
+      - mbox/tomcat-dev.mbox   # 1.6 GB — never commit anywhere
+
+  camel:
+    bundle: camel.zip
+    size: 808385539
+    drive_id: null
+    contents:
+      - git_repo/.git
+      - jira/issues/
+      - jira/issue_comments/
+
+  openssl:
+    bundle: openssl.zip
+    size: 412842553
+    drive_id: null
+    contents:
+      - git_repo/.git
+      - pipermail/
+
+  airflow:
+    bundle: airflow.zip
+    size: 167424061
+    drive_id: null
+    contents:
+      - git_repo/.git
+      - mbox/
+
+  kaiaulu:
+    bundle: kaiaulu.zip
+    size: 6423902
+    drive_id: null
+    contents:
+      - git_repo/.git
+      - github/
+
+  # Not yet bundled by SME — placeholders:
+  ambari:
+    bundle: ambari.zip
+    size: null
+    drive_id: null
+    contents: []
+
+  junit5:
+    bundle: junit5.zip
+    size: null
+    drive_id: null
+    contents: []
